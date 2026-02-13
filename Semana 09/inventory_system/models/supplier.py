@@ -1,7 +1,7 @@
 # Clase que representa un proveedor
 class Supplier:
     # Constructor de la clase Supplier con datos
-    def __init__(self, supplier_id: str, name: str, product_type: str, email: str, phone: str):
+    def __init__(self, supplier_id: str, name: str, product_type: str, email: str, phone: int):
         # Atributos privados para aplicar encapsulamiento
         self.__supplier_id = supplier_id # Atributo privado que es el identificador único del proveedor
         self.__name = name # Atributo privado del nombre del proveedor
@@ -23,7 +23,7 @@ class Supplier:
     def get_email(self) -> str:
         return self.__email
 
-    def get_phone(self) -> str:
+    def get_phone(self) -> int:
         return self.__phone
 
     # Métodos setter para establecer la información del proveedor
@@ -37,13 +37,13 @@ class Supplier:
     def set_email(self, email: str):
         self.__email = email
 
-    def set_phone(self, phone: str):
+    def set_phone(self, phone: int):
         self.__phone = phone
 
-    # Método que devuelve la información establecida del producto
+    # Método que devuelve la información establecida del proveedor
     def get_info_supplier(self):
         return f"ID: {self.__supplier_id} | Nombre: {self.__name} | Contacto: {self.__product_type} | Email: {self.__email} | Tel: {self.__phone}"
 
-    # Método para imprimir la información del producto
+    # Método para imprimir la información del proveedor
     def print_info_supplier(self):
         print(self.get_info_supplier())
