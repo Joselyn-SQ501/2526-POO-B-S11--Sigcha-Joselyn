@@ -42,7 +42,7 @@ class Supplier:
 
     # Método que devuelve la información establecida del proveedor
     def get_info_supplier(self):
-        return f"ID: {self.__supplier_id} | Nombre: {self.__name} | Contacto: {self.__product_type} | Email: {self.__email} | Tel: {self.__phone}"
+        return f"ID: {self.__supplier_id} | Nombre: {self.__name} | Tipo de producto: {self.__product_type} | Email: {self.__email} | Teléfono: {self.__phone}"
 
     # Método para imprimir la información del proveedor
     def print_info_supplier(self):
