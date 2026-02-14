@@ -22,6 +22,7 @@ class Inventory:
     def remove_product(self, product_id: str):
         # Bucle for que recorre la lista de productos para encontrar el producto con el ID especificado
         for product in self.__products:
+            if product.get_product_id() == product_id:
             # Condicional que compara el ID del producto con el ID proporcionado, si son iguales, se elimina el producto de la lista
                 self.__products.remove(product)
                 return True # Indica que se eliminó correctamente el producto
