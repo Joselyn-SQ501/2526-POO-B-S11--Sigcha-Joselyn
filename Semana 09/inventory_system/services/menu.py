@@ -106,16 +106,11 @@ class Menu:
         new_quantity = int(quantity) if quantity else None
         new_price = float(price) if price else None
 
-        if self.inventory.update_product(product_id, new_quantity, new_price):
-            print(f"✓ Producto '{product_id}' actualizado correctamente")
+        self.inventory.update_product(product_id, new_quantity, new_price)
 
-            updated_product = self.inventory.find_by_id(product_id)
-            if updated_product:
-                print("📌 Información actualizada:")
-                updated_product.print_info()
-
-        else:
-            print(f"✗ Producto con ID '{product_id}' no encontrado. Verifique que el ID sea correcto 👀")
+        print(f"✓ Producto '{product_id}' actualizado correctamente")
+        print("📌 Información actualizada:")
+        product.print_info()
 
     def search_product(self):
         print("\n1.Buscar por ID del producto")
