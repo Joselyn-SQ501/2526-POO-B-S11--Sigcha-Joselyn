@@ -10,7 +10,7 @@ class Product:
 
     # Métodos Getters para acceder y traer información
 
-    def get_id(self) -> str:
+    def get_product_id(self) -> str:
         return self.__product_id
 
     def get_name(self) -> str:
