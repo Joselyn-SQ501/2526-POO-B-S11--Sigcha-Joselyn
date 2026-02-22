@@ -35,7 +35,7 @@ class Product:
 
     # Método que devuelve la información establecida del producto
     def get_info(self):
-        return f"ID: {self.__product_id} | Nombre: {self.__name} | Cantidad: {self.__quantity} | Precio: ${self.__price:.2f}"
+        return f" 🛒 ID: {self.__product_id} | Nombre: {self.__name} | Cantidad: {self.__quantity} | Precio: ${self.__price:.2f}"
 
     # Método para imprimir la información del producto
     def print_info(self):
