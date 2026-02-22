@@ -12,6 +12,9 @@ from services.menu import Menu
 
 # Función principal que inicia el programa
 def main():
+    # Mostrar mensaje de inicio
+    print("\n✓ Bienvenido, programa iniciado — cargando inventario y configurando el sistema...")
+
     menu = Menu() # Crea una instancia de la clase Menu para gestionar la interacción con el usuario
     menu.show_menu() # Llama al método show_menu para mostrar el menú principal y gestionar las opciones seleccionadas por el usuario
 
