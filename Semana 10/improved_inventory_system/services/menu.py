@@ -76,7 +76,7 @@ class Menu:
         product = Product(product_id, name, int(quantity), float(price))
         
         if self.inventory.add_product(product): # Condicional que verifica si el producto se añadió correctamente al inventario, si es así, se añade al inventario
-            print("\n✓ Producto agregado correctamente")
+            print("\n✓ Producto agregado y guardado correctamente en el archivo 🗃️")
             print("\n📌 Información del producto agregado:")
             product.print_info()
         else: # Si el producto no se pudo añadir al inventario, se muestra un mensaje de error indicando que no se añadio porque el ID del producto ya existe
@@ -94,7 +94,7 @@ class Menu:
 
         if product:
             self.inventory.remove_product(product_id)
-            print(f"\n✓ Producto '{product.get_product_id()}': '{product.get_name()}' eliminado correctamente")
+            print(f"\n✓ Producto '{product.get_product_id()}': '{product.get_name()}' eliminado correctamente del inventario")
         else:
             print(f"\n✗ Producto con ID '{product_id}' no encontrado. Verifique que el ID sea correcto 👀")
     
@@ -128,14 +128,14 @@ class Menu:
         self.inventory.update_product(product_id, new_quantity, new_price) 
         
         # Si la actualización fue exitosa, muestra un mensaje de éxito y la información actualizada del producto
-        print(f"\n✓ Producto '{product.get_product_id()}': '{product.get_name()}' actualizado correctamente")
+        print(f"\n✓ Producto '{product.get_product_id()}': '{product.get_name()}' actualizado y guardado correctamente en el archivo 🗃️")
         print("\n📌 Información actualizada:")
         product.print_info()
 
     # Método que gestiona la búsqueda de productos en el inventario, permitiendo al usuario buscar por ID o por nombre, y validando los datos ingresados antes de realizar la búsqueda
     def search_product(self):
-        print("\n1.Buscar por ID del producto")
-        print("2.Buscar por nombre del producto")
+        print("\n1. Buscar por ID del producto")
+        print("2. Buscar por nombre del producto")
         option_search = input("\nSeleccione una opción: ").strip()
         
         # Condicional que verifica la opción de búsqueda seleccionada por el usuario, solicitando el ID del producto a buscar y se valida antes de realizar la búsqueda por ID en el inventario
