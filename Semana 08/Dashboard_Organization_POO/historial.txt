@@ -1,5 +1,0 @@
-2026-02-01 20:34:51 - Ejecutado: c:\Users\jossa\PycharmProjects\2526-POO-Sigcha-Joselyn\Semana 08\Dashboard_Organization_POO\Unidad 1\1.2. Tecnicas de Programacion\1.2.1. Ejemplo Tecnicas de Programacion.py
-2026-02-01 20:35:45 - Ejecutado: c:\Users\jossa\PycharmProjects\2526-POO-Sigcha-Joselyn\Semana 08\Dashboard_Organization_POO\Unidad 1\1.2. Tecnicas de Programacion\1.2.1. Ejemplo Tecnicas de Programacion.py
-2026-02-01 20:36:30 - Ejecutado: c:\Users\jossa\PycharmProjects\2526-POO-Sigcha-Joselyn\Semana 08\Dashboard_Organization_POO\Unidad 1\1.2. Tecnicas de Programacion\1.2.1. Ejemplo Tecnicas de Programacion.py
-2026-02-01 20:38:07 - Ejecutado: c:\Users\jossa\PycharmProjects\2526-POO-Sigcha-Joselyn\Semana 08\Dashboard_Organization_POO\Unidad 2\1.1. Tipos de Datos e Identificadores\2.1.1-1 - Nomenclatura en Python.py
-2026-02-01 20:38:44 - Ejecutado: c:\Users\jossa\PycharmProjects\2526-POO-Sigcha-Joselyn\Semana 08\Dashboard_Organization_POO\Unidad 2\1.1. Tipos de Datos e Identificadores\2.1.1-2 - Ejemplo Identificadores correctos (Python).py
