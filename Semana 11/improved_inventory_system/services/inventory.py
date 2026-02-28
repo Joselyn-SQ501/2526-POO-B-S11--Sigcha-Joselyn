@@ -18,7 +18,7 @@ class Inventory:
             "inventory.txt"
         )
 
-        # Archivo inventario dentro de services/record/
+        # Guarda la ruta del archivo como atributo privado
         self.__data_dir = data_dir
 
         self.__products = {} # Diccionario principal donde se almacenan los productos por clave y valor
@@ -28,10 +28,10 @@ class Inventory:
     # Método para guardar en un archivo
     def save_to_file(self):
         try:
-            # Asegurar que la carpeta exista
-
+            # Obtiene la carpeta donde se encuentra el archivo
             folder = os.path.dirname(self.__data_dir)
 
+            # Si la carpeta no existe, la crea automáticamente
             if not os.path.exists(folder):
                 os.makedirs(folder)
 
@@ -53,7 +53,7 @@ class Inventory:
 
         # Captura cualquier otro error inesperado
         except Exception as e:
-            print(f"⚠ Error inesperado al guardar el archivo: {e}")
+            print(f"⚠️ Error inesperado al guardar el archivo: {e}")
             return False
 
     # Método para cargar desde un archivo
@@ -75,8 +75,11 @@ class Inventory:
                     if len(data) != 4:
                         continue
 
-                    # Asigna cada valor a su variable correspondiente
-                    product_id, name, quantity, price = data
+                    # Asigna cada valor a su variable correspondiente, limpia espacios y normaliza el ID
+                    product_id = data[0].strip().upper()
+                    name = data[1].strip()
+                    quantity = data[2].strip()
+                    price = data[3].strip()
 
                     try:
                         # Crea un objeto Product convirtiendo cantidad y precio a tipos numéricos
@@ -92,19 +95,23 @@ class Inventory:
 
                     except ValueError:
                         # Si hay error en conversión de datos (datos corruptos)
-                        print(f"⚠ Línea {line_number} ignorada: datos corruptos")
+                        print(f"⚠️ Línea {line_number} ignorada: datos corruptos")
                         continue
 
         # Si el archivo no existe, lo crea vacío
         except FileNotFoundError:
 
+
             folder = os.path.dirname(self.__data_dir)
 
+            # Condicional para crear la carpeta de registro si no existe
             if not os.path.exists(folder):
                 os.makedirs(folder)
+                print("📂 Carpeta 'record' creada automáticamente.")
 
-            open(self.__data_dir, "w").close()
-            print("📁 Archivo inventario.txt creado automáticamente.")
+            # Crea un archivo vacío automáticamente
+            open(self.__data_dir, "w", encoding="utf-8").close()
+            print("📄 Archivo 'inventory.txt' creado automáticamente.")
 
         # Si no hay permisos para leer el archivo
         except PermissionError:
@@ -112,20 +119,21 @@ class Inventory:
 
         # Captura cualquier otro error inesperado
         except Exception as e:
-            print(f"⚠ Error inesperado al cargar el archivo: {e}")
+            print(f"⚠️ Error inesperado al cargar el archivo: {e}")
 
     # Método que añade un producto
     def add_product(self, product):
+        product_id = product.get_product_id().strip().upper()
         # Condicional que verifica si el ID ya existe, si existe, se retorna False para indicar que no se puede añadir
-        if product.get_product_id() in self.__products:
+        if product_id in self.__products:
             return False
 
         # Si el ID no está repetido, se añade el producto al diccionario
-        self.__products[product.get_product_id()] = product
+        self.__products[product_id] = product
 
         # Guarda automáticamente en el archivo
         if not self.save_to_file():
-            del self.__products[product.get_product_id()]
+            del self.__products[product_id]
             return False
 
         return True
@@ -140,6 +148,7 @@ class Inventory:
 
             del self.__products[product_id]
 
+            # Guarda cambios
             if not self.save_to_file():
                 self.__products[product_id] = product_backup
                 return False
@@ -155,6 +164,7 @@ class Inventory:
 
     # Método que busca productos por su nombre
     def find_by_name(self, name: str):
+        # Retorna una lista de productos cuyo nombre contiene el texto ingresado
         results = []
         # Bucle for que recorre la lista de productos para comparar el nombre del producto con el nombre proporcionado, si son iguales incluso parcialmente, se añade el producto a la lista de resultados
         for product in self.__products.values():
@@ -185,4 +195,4 @@ class Inventory:
     
     # Método que lista todos los productos en el inventario
     def list_products(self):
-        return list(self.__products.values())
+        return list(self.__products.values()) # Devuelve los productos almacenados en inventario

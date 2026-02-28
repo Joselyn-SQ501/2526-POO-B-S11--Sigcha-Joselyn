@@ -1,0 +1,8 @@
+2L32,limon,20,0.25
+2S24,Sandía,6,1.2
+1K25,Kiwi,25,0.26
+5Y53,Yogurt,9,0.25
+1J89,Jugo de limon,3,1.1
+5S24,Salmón,25,15.0
+5C45,Chocolates,25,0.55
+5CF5,Chocolate Ferrero,8,1.25
