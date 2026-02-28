@@ -1,11 +1,13 @@
 """
-Sistema de Gestión de Inventarios en consola.
+Sistema Avanzado de Gestión de Inventarios en consola.
 
 Este programa permite administrar productos dentro de un inventario,
 permitiendo añadir, eliminar, actualizar, buscar y listar productos.
 
-El sistema está estructurado utilizando Programación Orientada a Objetos
-y un diccionario como estructura principal de almacenamiento.
+El sistema está estructurado utilizando Programación Orientada a Objetos,
+haciendo uso de colecciones como un diccionario que es la estructura
+principal de almacenamiento.
+
 """
 # Importa la clase de servicio del menú
 from services.menu import Menu
