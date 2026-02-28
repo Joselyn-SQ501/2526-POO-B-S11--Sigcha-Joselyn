@@ -1,10 +1,10 @@
-# 📦 Sistema de Gestión de Inventarios 📄
+# 📦 Sistema Avanzado de Gestión de Inventarios 📄
 
-Este proyecto consiste en un sistema de gestión de inventarios desarrollado en Python, utilizando Programación Orientada a Objetos (POO) y listas como estructura de datos principal.
+Este proyecto consiste en un sistema avanzado de gestión de inventarios desarrollado en Python, utilizando Programación Orientada a Objetos (POO) y listas como estructura de datos principal.
 
-El sistema permite administrar productos mediante un menú interactivo en consola.
+El sistema permite administrar productos mediante un menú interactivo en consola e incorpora almacenamiento persistente utilizando un archivo de texto.
 
-Además. en esta versión mejorada del sistema se implementó almacenamiento persistente utilizando un archivo de texto llamado:`inventario.txt`
+En esta versión mejorada se optimizó el uso de colecciones y la organización del proyecto, cumpliendo con los requisitos de un sistema avanzado de inventario.
 
 ---
 
@@ -15,17 +15,19 @@ Además. en esta versión mejorada del sistema se implementó almacenamiento per
 - Encapsulamiento
 - Métodos Getter y Setter
 - Validaciones de datos
-- Uso de estructuras de datos primitivas (int, float, ...) y compuestas como las listas.
+- Uso de estructuras de datos primitivas (int, float, ...) y compuestas como colecciones (dict, listas auxiliares)
 - Separación por capas (modelo, servicios y archivo principal)
+- Persistencia de datos mediante archivos
+- Manejo de excepciones
 
 ### 🔄 Recuperar automáticamente el inventario
 
 Al iniciar el programa, la clase `Inventory`:
 
-1. Verifica si el archivo `inventario.txt` existe.
-2. Si no existe, lo crea automáticamente.
-3. Si existe, carga los productos almacenados.
-4. Reconstruye la lista privada `self.__products`.
+1. Verifica si la carpeta `record` y el archivo `inventory.txt` existeb.
+2. Si no existen, los crea automáticamente.
+3. Si existen, carga los productos almacenados.
+4. Reconstruye el diccionario privado `self.__products`.
 
 De esta manera, el inventario se mantiene sincronizado entre memoria y archivo.
 
@@ -61,9 +63,9 @@ Esto mejora la experiencia de usuario y permite una interacción más clara con 
 
 ## 📂 Estructura del Repositorio
 ```
-2526-POO-Sigcha-Joselyn/Semana 10/
+2526-POO-B-S11--Sigcha-Joselyn/Semana 11/
 │
-inventory_system/
+improved_inventory_system/
 │
 │   ├── model/              # Capa de datos, clase product
 │   │   └── __init__.py
@@ -74,9 +76,10 @@ inventory_system/
 │    └── inventory.py
 │    └── menu.py
 │    └── validator
+│    └── record/
+│        └── inventory.txt  # Archivo donde se almacena los productos
 │   
 ├── main.py                # Ejecutable principal
-├── inventory.txt          # Archivo donde se almacena los productos
 └── inventory_system.md    # Documentación del proyecto
 ```
 
@@ -97,13 +100,31 @@ La clase `Product` representa la entidad principal del sistema.
 - Getters
 - Setters
 ---
-## ⚙️ Uso de Listas
+## ⚙️ Uso de colecciones
 
-El inventario utiliza una lista privada:
+Ahora,se utiliza un diccionario privado como estructura principal para almacenar productos.
+```python
+self.__products = {}
+```
+Donde:
+
+- Clave (key): ID del producto
+- Valor (value): Objeto `Product`
+
+Esto permite:
+
+- 🔎 Búsqueda rápida por ID (0(1))
+- 🚀 Eliminación más eficiente
+- 🔄 Actualización directa sin recorrer toda la colección
+
+El inventario utilizaba anteriormente una lista privada como principal, ahora solo se mantuvo en resultados de la búsqueda por nombres:
 
 ```python
-self.__products = []
+results = []
 ```
+
+Tipos primitivos como (`int`, `float`, `str` para atributos
+
 ---
 
 ## 🧠 Funcionamiento General
@@ -138,7 +159,7 @@ El sistema funciona de la siguiente manera:
 
 Se realizaron pruebas en los siguientes escenarios:
 
-- Ejecución sin que exista el archivo `inventario.txt`.
+- Ejecución sin que exista la carpeta `record` el archivo `inventory.txt`.
 - Archivo con líneas corruptas.
 - Intento de escritura sin permisos adecuados.
 - Persistencia de datos tras cerrar y volver a ejecutar el programa.
@@ -158,10 +179,14 @@ Los resultados demostraron que el sistema mantiene consistencia entre los datos 
    
 ## 🏁 Conclusión
 
-Este proyecto permitió aplicar de manera práctica los conceptos de Programación Orientada a Objetos (POO) en Python mediante el desarrollo de un sistema de gestión de inventarios.
+Este proyecto permitió aplicar de manera práctica conceptos avanzados de Programación Orientada a Objetos en Python, integrando colecciones eficientes como diccionarios para optimizar la gestión de datos.
 
-Durante su implementación se utilizaron principios fundamentales como el encapsulamiento, la modularidad, la validación de datos y el manejo de listas como estructura principal de almacenamiento. El sistema permite gestionar productos de forma eficiente, incluyendo su creación, actualización, eliminación y búsqueda.
+La incorporación de almacenamiento persistente, manejo de excepciones, normalización de identificadores y validación anticipada de datos fortaleció la estructura del sistema, haciéndolo más robusto, organizado y escalable.
 
-Además, el proyecto refuerza buenas prácticas de programación como la organización del código, la separación de responsabilidades y la interacción clara con el usuario a través de un menú en consola.
+El sistema demuestra la correcta aplicación de:
 
-También, en esta versión mejorada, se incorporó almacenamiento persistente mediante archivos de texto y manejo de excepciones, fortaleciendo la resiliencia del sistema ante errores y mejorando la consistencia entre los datos en memoria y los datos almacenados externamente. Esto permitió aplicar conceptos fundamentales como manipulación de archivos y control de errores en Python.
+- POO
+- Colecciones
+- Persistencia de datos
+- Separación de responsabilidades
+- Buenas prácticas de organización y documentación
