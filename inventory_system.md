@@ -80,7 +80,7 @@ improved_inventory_system/
 │        └── inventory.txt  # Archivo donde se almacena los productos
 │   
 ├── main.py                # Ejecutable principal
-└── inventory_system.md    # Documentación del proyecto
+└── README.md              # Documentación del proyecto
 ```
 
 ---
